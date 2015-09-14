@@ -3,10 +3,12 @@
   "dependencies": {
     "babelify": "^6.3.0",
     "browserify": "~> 10.2.4",
-    "browserify-incremental": "^3.0.1"
+    "browserify-incremental": "^3.0.1",
+    "bower": "^1.5.2"
   },
   "license": "MIT",
   "engines": {
-    "node": ">= 0.10"
+    "node": "^4.0.0",
+    "npm":"^2.14.2"
   }
 }

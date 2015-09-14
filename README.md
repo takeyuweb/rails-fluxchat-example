@@ -32,3 +32,9 @@ Visit `http://localhost:3000`
 - sprockets-es6
 - browserify-rails
 - actioncable
+
+## Heroku
+
+```bash
+heroku config:set BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-multi.git
+```

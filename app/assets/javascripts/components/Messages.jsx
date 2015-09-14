@@ -15,9 +15,14 @@ var MessageForm = React.createClass({
         this.setState({message: e.target.value});
     },
 
+    changeRecipient(e) {
+        this.setState({to: e.target.value});
+    },
+
     onKeyDown(e) {
         if (e.keyCode === ENTER_KEY_CODE) {
             var message = {
+                to: this.state.to,
                 body: this.state.message
             };
             MessageActions.postMessage(message);
@@ -30,10 +35,17 @@ var MessageForm = React.createClass({
             <div>
                 <input
                     type="text"
-                    size="100"
+                    size="30"
+                    value={this.state.to}
+                    onChange={this.changeRecipient}
+                    placeholder="Recipient (Optional)"/>
+                <input
+                    type="text"
+                    size="80"
+                    placeholder="Input Message"
                     value={this.state.message}
                     onChange={this.changeMessage}
-                    onKeyDown={this.onKeyDown}/>
+                    onKeyDown={this.onKeyDown} />
             </div>
         );
     }

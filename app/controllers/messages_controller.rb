@@ -3,7 +3,13 @@ class MessagesController < ApplicationController
 
   # GET /messages.json
   def index
-    @messages = Message.order(created_at: :desc).limit(100).all
+    t = Message.arel_table
+    everyone = t[:to].eq(nil)
+    direct_message = t[:to].eq(uuid)
+    own = t[:uuid].eq(uuid)
+    @messages = Message
+                    .where(everyone.or(direct_message).or(own))
+                    .order(created_at: :desc).limit(100).all
   end
 
   # GET /messages/1
@@ -14,7 +20,7 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-    @message.uuid = cookies.signed[:uuid]
+    @message.uuid = uuid
 
     respond_to do |format|
       if @message.save
@@ -54,6 +60,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:body)
+      params.require(:message).permit(:body, :to)
     end
 end

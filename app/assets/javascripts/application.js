@@ -6,4 +6,5 @@
 window.App = {};
 
 var host = document.getElementsByName('host')[0].content;
-window.App.cable = Cable.createConsumer("ws://"+host+":28080");
+var port = document.getElementsByName('port')[0].content;
+window.App.cable = Cable.createConsumer("ws://"+host+":"+port);

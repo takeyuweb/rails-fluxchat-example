@@ -1,1 +1,1 @@
-web: bundle exec puma -p $PORT cable/config.ru
+web: bundle exec puma -p $CABLE_PORT cable/config.ru

@@ -3,7 +3,8 @@
 <head>
     <title>Fluxchat</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <meta name="host" content="<%= request.host %>" />
+    <meta name="host" content="<%= ENV['CABLE_URL'].presence || request.host %>" />
+    <meta name="port" content="<%= ENV['CABLE_PORT'].presence || '28080' %>" />
     <%= csrf_meta_tags %>
 </head>
 <body>

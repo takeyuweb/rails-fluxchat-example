@@ -9,6 +9,7 @@ module ApplicationCable
 
     protected
     def find_uuid
+      logger.info request.headers.inspect
       logger.info "[ActionCable] uuid:#{cookies.signed[:uuid]} (COOKIE_DOMAIN:#{ENV['COOKIE_DOMAIN']})"
       if uuid = cookies.signed[:uuid]
         uuid

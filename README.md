@@ -68,3 +68,5 @@ heroku logs --tail --app fluxchat-actioncable
 
 抜けあるかも
 
+参考 http://stackoverflow.com/questions/31644603/deploying-ruby-on-rails-app-to-heroku-while-using-action-cable-puma-port-listen
+

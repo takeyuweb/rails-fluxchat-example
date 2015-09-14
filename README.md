@@ -35,6 +35,36 @@ Visit `http://localhost:3000`
 
 ## Heroku
 
+memo
+
 ```bash
-heroku config:set BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-multi.git
+heroku create fluxchat --remote rails
+heroku create fluxchat-actioncable --remote actioncable
+heroku buildpacks:set https://github.com/heroku/heroku-buildpack-multi.git --app fluxchat
+heroku buildpacks:set https://github.com/heroku/heroku-buildpack-multi.git --app fluxchat-actioncable
+heroku config:add PROCFILE_PATH=Procfile.rails --app fluxchat
+heroku config:add PROCFILE_PATH=Procfile.actioncable --app fluxchat-actioncable
+heroku config:add REDIS_URL=redis://rediscloud:xxxxxxxxxxxxxx@pub-redis-18876.us-east-1-2.4.ec2.garantiadata.com:18876 --app fluxchat
+heroku config:add REDIS_URL=redis://rediscloud:Qxxxxxxxxxxxxxxx@pub-redis-18876.us-east-1-2.4.ec2.garantiadata.com:18876 --app fluxchat-actioncable
+heroku config:set BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-multi.git --app fluxchat-actioncable
+heroku config:set DATABASE_URL=postgres://xxxxxxxxxxxx:xxxxxxxxxxxxxxxxxxxxxxxx@ec2-50-16-229-89.compute-1.amazonaws.com:5432/xxxxxxxxxxxxxxxxxxx --app fluxchat-actioncable
+
+heroku domains:add fluxchat.takeyu-web.com --app fluxchat
+heroku domains:add fluxchat-actioncable.takeyu-web.com --app fluxchat-actioncable
+heroku config:set CABLE_URL=fluxchat-actioncable.takeyu-web.com --app fluxchat
+heroku config:set CABLE_URL=fluxchat-actioncable.takeyu-web.com --app fluxchat-actioncable
+heroku config:set CABLE_PORT=80 --app fluxchat
+heroku config:set CABLE_PORT=80 --app fluxchat-actioncable
+heroku config:set COOKIE_DOMAIN=.takeyu-web.com --app fluxchat
+heroku config:set COOKIE_DOMAIN=.takeyu-web.com --app fluxchat-actioncable
+heroku config:set SECRET_KEY_BASE=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --app fluxchat-actioncable
+
+git push heroku heroku:master
+git push actioncable heroku:master
+
+heroku logs --tail --app fluxchat
+heroku logs --tail --app fluxchat-actioncable
 ```
+
+抜けあるかも
+

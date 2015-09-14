@@ -12,3 +12,6 @@ local: &local
   :inline: true
 development: *local
 test: *local
+production:
+  :url: ENV['REDISCLOUD_URL']
+  :timeout: 1

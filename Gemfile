@@ -63,3 +63,4 @@ gem 'browserify-rails'
 gem 'actioncable', github: 'rails/actioncable'
 gem 'puma'
 
+gem 'foreman'

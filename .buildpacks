@@ -1,2 +1,4 @@
 https://github.com/heroku/heroku-buildpack-nodejs
 https://github.com/heroku/heroku-buildpack-ruby
+https://github.com/cantino/heroku-selectable-procfile
+https://github.com/heroku/heroku-buildpack-ruby

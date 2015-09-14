@@ -17,6 +17,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+        MessageRelayJob.perform_later(@message) # ActionCableでクライアントに通知
         format.json { render :show, status: :created, location: @message }
       else
         format.json { render json: @message.errors, status: :unprocessable_entity }
@@ -28,6 +29,7 @@ class MessagesController < ApplicationController
   def update
     respond_to do |format|
       if @message.update(message_params)
+        MessageRelayJob.perform_later(@message)
         format.json { render :show, status: :ok, location: @message }
       else
         format.json { render json: @message.errors, status: :unprocessable_entity }

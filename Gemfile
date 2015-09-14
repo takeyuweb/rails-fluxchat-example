@@ -53,3 +53,7 @@ gem 'react-rails'
 # ES6
 gem 'sprockets-es6', require: 'sprockets/es6'
 gem 'browserify-rails'
+
+gem 'actioncable', github: 'rails/actioncable'
+gem 'puma'
+

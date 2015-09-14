@@ -3,6 +3,7 @@
 <head>
     <title>Fluxchat</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <meta name="host" content="<%= request.host %>" />
     <%= csrf_meta_tags %>
 </head>
 <body>

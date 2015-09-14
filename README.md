@@ -9,6 +9,10 @@ rails-fluxchat-example
 - React
 - Flux (Alt)
 
+## Demo
+
+http://fluxchat.takeyu-web.com/
+
 ## Starting the servers
 
 ```bash

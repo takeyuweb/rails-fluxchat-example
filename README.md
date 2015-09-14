@@ -53,8 +53,10 @@ heroku domains:add fluxchat.takeyu-web.com --app fluxchat
 heroku domains:add fluxchat-actioncable.takeyu-web.com --app fluxchat-actioncable
 heroku config:set CABLE_URL=fluxchat-actioncable.takeyu-web.com --app fluxchat
 heroku config:set CABLE_URL=fluxchat-actioncable.takeyu-web.com --app fluxchat-actioncable
-heroku config:set CABLE_PORT=80 --app fluxchat
-heroku config:set CABLE_PORT=80 --app fluxchat-actioncable
+heroku config:set CABLE_PORT=443 --app fluxchat
+heroku config:set CABLE_PORT=443 --app fluxchat-actioncable
+heroku config:set CABLE_PROTOCOL=wss --app fluxchat
+heroku config:set CABLE_PROTOCOL=wss --app fluxchat-actioncable
 heroku config:set COOKIE_DOMAIN=.takeyu-web.com --app fluxchat
 heroku config:set COOKIE_DOMAIN=.takeyu-web.com --app fluxchat-actioncable
 heroku config:set SECRET_KEY_BASE=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --app fluxchat-actioncable

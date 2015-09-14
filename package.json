@@ -1,0 +1,12 @@
+{
+  "name": "fluxchat",
+  "dependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "~> 10.2.4",
+    "browserify-incremental": "^3.0.1"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10"
+  }
+}

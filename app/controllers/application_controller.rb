@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
 
   private
   def set_uuid
-    Rails.logger.info "uuid:#{cookies.signed[:uuid]} (COOKIE_DOMAIN:#{ENV['COOKIE_DOMAIN']})"
     unless cookies.signed[:uuid]
       cookies.signed[:uuid] = {
           value: SecureRandom.uuid,

@@ -8,7 +8,11 @@ class ApplicationController < ActionController::Base
   private
   def set_uuid
     unless cookies.signed[:uuid]
-      cookies.signed[:uuid] = SecureRandom.uuid
+      cookies.signed[:uuid] = {
+          value: SecureRandom.uuid,
+          domain: ENV['COOKIE_DOMAIN'].presence,
+          expires: 10.years.from_now
+      }
     end
     true
   end

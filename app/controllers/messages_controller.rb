@@ -14,6 +14,7 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
+    @message.uuid = cookies.signed[:uuid]
 
     respond_to do |format|
       if @message.save

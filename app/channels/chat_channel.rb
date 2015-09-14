@@ -12,7 +12,10 @@ class ChatChannel < ApplicationCable::Channel
     message = nil
 
     ActiveRecord::Base.connection_pool.with_connection do |conn|
-      message = Message.create(body: data['body'])
+      message = Message.create(
+          body: data['body'],
+          uuid: connection.uuid
+      )
     end
 
     ActionCable.server.broadcast 'chat_activity', message.to_json

@@ -60,7 +60,7 @@ var AllMessages = React.createClass({
                 {
                     this.props.messages.map((message, i)=> {
                         return (
-                            <li key={i}>{message.body}</li>
+                            <li key={i}><span style={{color: '#999999'}}>[{message.uuid}]</span> {message.body}</li>
                         );
                     })
                 }

@@ -16,6 +16,9 @@
 !/log/.keep
 /tmp
 
+# Ignore precompiled assets
+/public/assets
+
 # IntelliJ IDEA
 /fluxchat.iml
 /.idea

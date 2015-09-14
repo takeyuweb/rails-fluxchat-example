@@ -18,6 +18,7 @@ http://fluxchat.takeyu-web.com/
 ```bash
 git clone https://github.com/takeyuweb/rails-fluxchat-example.git
 cd rails-fluxchat-example
+npm install
 bundle install
 bundle exec rake db:migrate
 bundle exec rake bower:install

@@ -10,6 +10,7 @@
     "name": "bower-rails generated vendor assets",
     "dependencies": {
       "alt": "0.17.3",
+      "react": "^0.13.3",
       "axios": "^0.5.4"
     }
   }

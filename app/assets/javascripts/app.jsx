@@ -1,4 +1,4 @@
-var React = require('react');
+var React = require('react/react-with-addons');
 var Messages = require('./components/Messages.jsx');
 
 React.render(

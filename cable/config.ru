@@ -3,4 +3,8 @@ Rails.application.eager_load!
 
 require 'action_cable/process/logging'
 
+# CSRF protection
+#ActionCable.server.config.allowed_request_origins =
+#    ["http://localhost:3000"]
+
 run ActionCable.server
